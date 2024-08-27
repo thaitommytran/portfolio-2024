@@ -155,6 +155,8 @@ section {
 
 .section-container {
   display: flex;
+  gap: 4rem;
+  height: 80%;
 }
 
 /* PROFILE */
@@ -170,11 +172,11 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
-  background-color: rgb(181, 181, 181);
-  border-radius: 200px;
 }
 
-.section__pic-container img {
+#profile .section__pic-container,
+.profile-pic {
+  background-color: rgb(181, 181, 181);
   border-radius: 200px;
 }
 
@@ -255,4 +257,45 @@ section {
 
 .btn-color-2:hover {
   border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+/* ABOUT SECTION */
+#about {
+  position: relative;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.about-details-container,
+.about-containers {
+  display: flex;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
 }
