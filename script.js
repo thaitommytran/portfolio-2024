@@ -4,7 +4,12 @@ const downloadLink = document.querySelector("button.btn.btn-color-2");
 const contactInfo = document.querySelector("button.btn.btn-color-1");
 const linkedInProfile = document.querySelector("img[alt='LinkedIn Profile']");
 const gitHubProfile = document.querySelector("img[alt='GitHub Profile']");
-const experienceContainer = document.querySelector(".experience-containers");
+const experienceContainer = document.querySelector(
+  "#experience .experience-containers"
+);
+const projectsContainer = document.querySelector(
+  "#projects .experience-details-container"
+);
 
 const frontend = {
   HTML: "Experienced",
@@ -22,6 +27,36 @@ const backend = {
   Git: "Intermediate",
   Firebase: "Basic"
 };
+
+class Project {
+  constructor(name, imgSRC, gitHubURL, liveDemoURL) {
+    this.name = name;
+    this.imgSRC = imgSRC;
+    this.gitHubURL = gitHubURL;
+    this.liveDemoURL = liveDemoURL;
+  }
+}
+
+const projects = [
+  new Project(
+    "Project One",
+    "assets/project-1.png",
+    "https://github.com/thaitommytran",
+    "https://google.com"
+  ),
+  new Project(
+    "Project Two",
+    "assets/project-2.png",
+    "https://github.com/thaitommytran",
+    "https://google.com"
+  ),
+  new Project(
+    "Project Three",
+    "assets/project-3.png",
+    "https://github.com/thaitommytran",
+    "https://google.com"
+  )
+];
 
 function getExperience(development) {
   const devType = () => {
@@ -54,12 +89,58 @@ function getExperience(development) {
       <div>
         <h3>${skill}</h3>
         <p>${level}</p>
-      </div>`;
+      </div>
+    `;
 
     articleContainer.appendChild(article);
   }
 
   experienceContainer.appendChild(details);
+}
+
+function getProjects(projects) {
+  const detailsContainer = document.createElement("div");
+  detailsContainer.classList.add("about-containers");
+
+  for (const project of projects) {
+    const details = document.createElement("div");
+    details.classList.add("details-container");
+    details.classList.add("color-container");
+    details.innerHTML = `
+      <div class="article-container">
+        <img
+          class="project-img"
+          src=${project.imgSRC}
+          alt=${project.name} />
+      </div>
+    `;
+
+    const subTitle = document.createElement("h2");
+    const btnContainer = document.createElement("div");
+    const gitHubButton = document.createElement("button");
+    const liveDemoButton = document.createElement("button");
+
+    subTitle.classList.add("experience-sub-title");
+    subTitle.classList.add("project-title");
+    btnContainer.classList.add("btn-container");
+    gitHubButton.className = "btn btn-color-2 project-btn";
+    liveDemoButton.className = "btn btn-color-2 project-btn";
+
+    subTitle.innerText = project.name;
+    gitHubButton.innerText = "GitHub";
+    liveDemoButton.innerText = "Live Demo";
+
+    gitHubButton.onclick = () => window.open(project.gitHubURL, "_blank");
+    liveDemoButton.onclick = () => window.open(project.liveDemoURL, "_blank");
+
+    btnContainer.appendChild(gitHubButton);
+    btnContainer.appendChild(liveDemoButton);
+    details.appendChild(subTitle);
+    details.appendChild(btnContainer);
+    detailsContainer.appendChild(details);
+  }
+
+  projectsContainer.appendChild(detailsContainer);
 }
 
 function toggleMenu() {
@@ -95,3 +176,4 @@ gitHubProfile.addEventListener("click", openGitHub);
 
 getExperience(frontend);
 getExperience(backend);
+getProjects(projects);
