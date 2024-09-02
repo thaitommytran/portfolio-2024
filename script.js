@@ -10,6 +10,7 @@ const experienceContainer = document.querySelector(
 const projectsContainer = document.querySelector(
   "#projects .experience-details-container"
 );
+const downArrowIcons = document.querySelectorAll("img[alt='Arrow Icon']");
 
 const frontend = {
   HTML: "Experienced",
@@ -158,11 +159,16 @@ function scrollToContact() {
 }
 
 function openLinkedIn() {
-  location.href = "https://www.linkedin.com/in/thaitommytran";
+  window.open("https://www.linkedin.com/in/thaitommytran", "_blank");
 }
 
 function openGitHub() {
-  location.href = "https://github.com/thaitommytran";
+  window.open("https://github.com/thaitommytran", "_blank");
+}
+
+function scrollToNextSection(index) {
+  const nextSection = document.querySelectorAll("section")[index + 2];
+  if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
 }
 
 hamburgerIcon.addEventListener("click", toggleMenu);
@@ -173,6 +179,9 @@ downloadLink.addEventListener("click", openResume);
 contactInfo.addEventListener("click", scrollToContact);
 linkedInProfile.addEventListener("click", openLinkedIn);
 gitHubProfile.addEventListener("click", openGitHub);
+downArrowIcons.forEach((downArrowIcon, index) => {
+  downArrowIcon.addEventListener("click", () => scrollToNextSection(index));
+});
 
 getExperience(frontend);
 getExperience(backend);
