@@ -255,7 +255,7 @@ section {
 }
 
 .about-pic {
-  border-radius: 2rem;
+  border-radius: 0.25rem;
 }
 
 .about-details-container,
