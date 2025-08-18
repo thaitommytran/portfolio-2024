@@ -40,22 +40,22 @@ class Project {
 
 const projects = [
   new Project(
-    "Project One",
-    "assets/project-1.png",
-    "https://github.com/thaitommytran",
-    "https://google.com"
+    "SaaSy UI",
+    "assets/saasy-ui.png",
+    "https://github.com/thaitommytran/sassy-ui",
+    "https://sassy-ui-eosin.vercel.app/"
   ),
   new Project(
-    "Project Two",
-    "assets/project-2.png",
-    "https://github.com/thaitommytran",
-    "https://google.com"
+    "Best Eats",
+    "assets/best-eats.png",
+    "https://github.com/thaitommytran/react-food-delivery-app",
+    "https://react-food-delivery-app-iota.vercel.app/"
   ),
   new Project(
-    "Project Three",
-    "assets/project-3.png",
-    "https://github.com/thaitommytran",
-    "https://google.com"
+    "Netflix Clone",
+    "assets/netflix-clone.png",
+    "https://github.com/thaitommytran/netflix-react-clone",
+    "https://netflix-react-clone-tt.web.app/"
   )
 ];
 
