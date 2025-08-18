@@ -151,7 +151,7 @@ function toggleMenu() {
 }
 
 function openResume() {
-  window.open("/assets/resume-example.pdf");
+  window.open("https://docs.google.com/document/d/1UUbAm9j61D9XX_D83UF56FhN-QbkZCk1YyAOGwJGnHw/edit?usp=sharing");
 }
 
 function scrollToContact() {
